@@ -6,4 +6,4 @@ CLI for dealing with KD plugins
 
 ## init
 
-Initialize a new plugin in the wokring directory.
+Initialize a new plugin in the working directory.
