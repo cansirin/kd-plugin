@@ -1,6 +1,6 @@
 {
   "name": "kd-plugin",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A plugin generator for KD framework",
   "bin": {
     "kd-plugin": "bin/kd-plugin"
