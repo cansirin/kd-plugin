@@ -1,0 +1,14 @@
+#!/usr/bin/env node
+
+var argv = require('minimist')(process.argv);
+var color = require('cli-color');
+
+var subcommand = argv._[argv._.length - 1]
+
+switch(subcommand) {
+case 'init':
+  require('../lib/kd-plugin/init.js');
+  break;
+default:
+  console.log(color.red("Unknown subcommand: " + subcommand));
+}

@@ -1,0 +1,31 @@
+gulp        = require 'gulp'
+util        = require 'gulp-util'
+coffee      = require 'gulp-coffee'
+replace     = require 'gulp-replace'
+rename      = require 'gulp-rename'
+browserify  = require 'browserify'
+coffeeify   = require 'coffeeify'
+source      = require 'vinyl-source-stream'
+
+coffee4Node = -> (coffee bare: yes, sourceMap: yes).on 'error', util.log
+
+PLUGIN_NAME = "<%= name %>"
+
+gulp.task 'build', ->
+  gulp.src "./src/#{ PLUGIN_NAME }/*.coffee"
+    .pipe coffee4Node()
+    .pipe replace '.coffee', '.js'
+    .pipe gulp.dest "./lib/#{ PLUGIN_NAME }"
+
+gulp.task 'browserify', ->
+  browserify
+    entries     : ["./src/#{ PLUGIN_NAME }/#{ PLUGIN_NAME }.coffee"]
+    debug       : yes
+  .require "./src/#{ PLUGIN_NAME }/#{ PLUGIN_NAME }.coffee", expose: PLUGIN_NAME
+  .transform 'coffeeify'
+  .bundle()
+  .pipe source "#{ PLUGIN_NAME }.coffee"
+  .pipe rename '#{ PLUGIN_NAME }.js'
+  .pipe gulp.dest 'browser'
+
+gulp.task 'default', ['build', 'browserify']

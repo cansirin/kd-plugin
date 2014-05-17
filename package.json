@@ -1,0 +1,22 @@
+{
+  "name": "kd-plugin",
+  "version": "0.0.0",
+  "description": "A plugin generator for KD framework",
+  "bin": {
+    "kd-plugin": "bin/kd-plugin"
+  },
+  "author": "Christopher Thorn <chris@koding.com>",
+  "preferGlobal": true,
+  "license": "MIT",
+  "dependencies": {
+    "bluebird": "^1.2.4",
+    "read": "^1.0.5",
+    "mkdirp": "^0.5.0",
+    "lodash.template": "^2.4.1",
+    "touch": "0.0.3",
+    "lodash.zip": "^2.4.1",
+    "lodash.zipobject": "^2.4.1",
+    "minimist": "^0.1.0",
+    "cli-color": "^0.3.2"
+  }
+}
