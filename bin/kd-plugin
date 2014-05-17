@@ -3,11 +3,11 @@
 var argv = require('minimist')(process.argv);
 var color = require('cli-color');
 
-var subcommand = argv._[argv._.length - 1]
+var subcommand = argv._[argv._.length - 1];
 
 switch(subcommand) {
 case 'init':
-  require('../lib/kd-plugin/init.js');
+  require('../lib/kd-plugin/init/init.js')();
   break;
 default:
   console.log(color.red("Unknown subcommand: " + subcommand));
