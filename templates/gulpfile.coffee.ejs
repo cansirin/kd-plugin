@@ -25,7 +25,7 @@ gulp.task 'browserify', ->
   .transform 'coffeeify'
   .bundle()
   .pipe source "#{ PLUGIN_NAME }.coffee"
-  .pipe rename '#{ PLUGIN_NAME }.js'
+  .pipe rename "#{ PLUGIN_NAME }.js"
   .pipe gulp.dest 'browser'
 
 gulp.task 'default', ['build', 'browserify']
